@@ -1,17 +1,31 @@
 package br.ETS.almoxarifado;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import br.ETS.almoxarifado.produto.ProdutoService;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import java.util.Scanner;
+
+public class Main {
+
+    private static ProdutoService produtoService = new ProdutoService();
+    private static Scanner scanner = new Scanner(System.in);
+
+    private static int exibirMenu(){
+        System.out.println("Almoxarifado ETS");
+        System.out.println("""
+                Selecione uma opção:
+                1) Inserir novo produto
+                2) Listar produtos
+                3) Adicionar quantidade de produtos
+                4) Remover quantidade de produtos
+                5) Remover produto
+                6) Encerrar aplicação
+                """);
+        return Integer.parseInt(scanner.nextLine());
     }
+
+    public static void main(String[] args) {
+
+        var opcao = exibirMenu();
+    }
+
 }
