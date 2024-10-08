@@ -61,6 +61,7 @@ public class Main {
         System.out.printf("O produto %s foi cadastrado com sucesso.\n", produto);
     }
         private static void exibirProdutosCadastrados(){
+            System.out.println("Os produtos cadastrados são:");
             var produtos = produtoService.exibirProdutosAlmoxarifado();
             produtos.forEach(System.out::println);
             System.out.println("Pressione ENTER para voltar ao menu principal.");
@@ -74,6 +75,7 @@ public class Main {
             var quantidade = Integer.parseInt(scanner.nextLine());
 
             produtoService.adicionarQuantidadeDeUmProduto(id, quantidade);
+            System.out.printf("A quantidade de %d foi adicionada ao produto com ID %d\n", quantidade, id);
             System.out.println("Pressione ENTER para voltar ao menu principal.");
             scanner.nextLine();
         }
@@ -85,6 +87,7 @@ public class Main {
             var quantidade = Integer.parseInt(scanner.nextLine());
 
             produtoService.removerQuantidadeDeUmProduto(id, quantidade);
+            System.out.printf("A quantidade de %d foi removida do produto com ID %d\n", quantidade, id);
             System.out.println("Pressione ENTER para voltar ao menu principal.");
             scanner.nextLine();
         }
@@ -94,6 +97,7 @@ public class Main {
             var id = Integer.parseInt(scanner.nextLine());
 
             produtoService.removerProdutoAlmoxarifado(id);
+            System.out.printf("O produto com id %d foi removido com sucesso\n", id);
             System.out.println("Pressione ENTER para voltar ao menu principal.");
             scanner.nextLine();
         }
